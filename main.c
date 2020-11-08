@@ -139,7 +139,7 @@ int main(int argc, char **argv) {
 	daemonize();
 	ensure_one_process(arguments.pid_file);
 	syslog(LOG_INFO, "aion is started");
-	// epoll loop
+	// (e)poll loop
 	while(1) {
 
 	}

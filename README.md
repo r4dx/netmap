@@ -26,18 +26,18 @@ Format
 Pillars:
 
 1. Append-only storage
-  1. Index is stored as an array that constantly grows up
-  1. Each element contains timestamp and offset in data file
-  1. Naturally the array is sorted by timestamp
-  1. Data file grows the same way but contains variable amount of data per entry - it contains timestamp and array of edges
+  1.1. Index is stored as an array that constantly grows up
+  1.1. Each element contains timestamp and offset in data file
+  1.1. Naturally the array is sorted by timestamp
+  1.1. Data file grows the same way but contains variable amount of data per entry - it contains timestamp and array of edges
 
 1. Storage accumulates all requests within 1 sec range and create only 1 record per second
-  1. 2.6M of record per month - index grows by ~40MB / month. Should separate index file by months.
+  1.1. 2.6M of record per month - index grows by ~40MB / month. Should separate index file by months.
 
 1. Storage discards new data from the past (if received after the last 1 sec range but with timestamp <= it)
 
 1. Push model
-  1. ASCII protocol
+  1.1. ASCII protocol
 
-1. One-thread no-locks epoll model
+1. One-thread no-locks (e)poll model
 
